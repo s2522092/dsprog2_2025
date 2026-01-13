@@ -42,15 +42,15 @@ class WeatherForecastApp:
                     "🌤️ 天気予報アプリ",
                     size=32,
                     weight=ft.FontWeight.BOLD,
-                    color=ft.colors.WHITE,
+                    color=ft.Colors.WHITE,
                 ),
                 ft.Text(
                     "気象庁データを利用した天気予報",
                     size=16,
-                    color=ft.colors.WHITE70,
+                    color=ft.Colors.WHITE70,
                 ),
             ]),
-            bgcolor=ft.colors.BLUE_700,
+            bgcolor=ft.Colors.BLUE_700,
             padding=30,
             border_radius=10,
             margin=ft.margin.only(bottom=20),
@@ -62,7 +62,6 @@ class WeatherForecastApp:
             hint_text="地域を選択してください",
             width=400,
             disabled=True,
-            on_change=self.on_area_changed,
         )
         
         self.get_weather_btn = ft.ElevatedButton(
@@ -80,7 +79,7 @@ class WeatherForecastApp:
                 self.area_dropdown,
                 self.get_weather_btn,
             ], spacing=15),
-            bgcolor=ft.colors.GREY_100,
+            bgcolor=ft.Colors.GREY_100,
             padding=20,
             border_radius=10,
             margin=ft.margin.only(bottom=20),
@@ -98,12 +97,12 @@ class WeatherForecastApp:
         
         # エラーメッセージ
         self.error_text = ft.Container(
-            content=ft.Text("", color=ft.colors.RED_700, size=16),
+            content=ft.Text("", color=ft.Colors.RED_700, size=16),
             visible=False,
-            bgcolor=ft.colors.RED_50,
+            bgcolor=ft.Colors.RED_50,
             padding=15,
             border_radius=8,
-            border=ft.border.all(2, ft.colors.RED_200),
+            border=ft.border.all(2, ft.Colors.RED_200),
             margin=ft.margin.only(bottom=20),
         )
         
@@ -122,7 +121,7 @@ class WeatherForecastApp:
                     url="https://www.jma.go.jp/",
                 ),
             ], alignment=ft.MainAxisAlignment.CENTER),
-            bgcolor=ft.colors.GREY_100,
+            bgcolor=ft.Colors.GREY_100,
             padding=15,
             border_radius=10,
             margin=ft.margin.only(top=20),
@@ -225,11 +224,11 @@ class WeatherForecastApp:
             content=ft.Container(
                 content=ft.Column([
                     ft.Row([
-                        ft.Icon(ft.icons.BUSINESS, color=ft.colors.BLUE_700),
+                        ft.Icon(ft.icons.BUSINESS, color=ft.Colors.BLUE_700),
                         ft.Text(f"発表元 {forecast.get('publishingOffice', '不明')}", size=14),
                     ]),
                     ft.Row([
-                        ft.Icon(ft.icons.ACCESS_TIME, color=ft.colors.BLUE_700),
+                        ft.Icon(ft.icons.ACCESS_TIME, color=ft.Colors.BLUE_700),
                         ft.Text(
                             f"発表日時 {self.format_datetime(forecast.get('reportDatetime'))}",
                             size=14
@@ -258,7 +257,7 @@ class WeatherForecastApp:
         card_content = ft.Column([
             ft.Container(
                 content=ft.Text(title, size=18, weight=ft.FontWeight.BOLD),
-                bgcolor=ft.colors.BLUE_50,
+                bgcolor=ft.Colors.BLUE_50,
                 padding=10,
                 border_radius=ft.border_radius.only(top_left=10, top_right=10),
             ),
@@ -293,7 +292,7 @@ class WeatherForecastApp:
                     self.format_datetime(time),
                     size=16,
                     weight=ft.FontWeight.BOLD,
-                    color=ft.colors.BLUE_700,
+                    color=ft.Colors.BLUE_700,
                 ),
                 margin=ft.margin.only(bottom=8),
             )
@@ -332,11 +331,11 @@ class WeatherForecastApp:
         
         return ft.Container(
             content=ft.Column(details, spacing=5),
-            bgcolor=ft.colors.GREY_50,
+            bgcolor=ft.Colors.GREY_50,
             padding=15,
             margin=ft.margin.only(left=10, right=10, bottom=10),
             border_radius=8,
-            border=ft.border.all(1, ft.colors.GREY_300),
+            border=ft.border.all(1, ft.Colors.GREY_300),
         )
     
     def format_datetime(self, datetime_str: Optional[str]) -> str:
